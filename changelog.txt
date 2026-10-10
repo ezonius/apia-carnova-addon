@@ -1,0 +1,8 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-10-10
+  Features:
+    - Adds configurable module slots to the Artificial Hive (startup setting, 0-8, default 6).
+    - Adds per-effect runtime toggles (speed, productivity, consumption, pollution, quality) for
+      the Artificial Hive. Disallowed modules are removed from placed hives when a toggle changes.
+---------------------------------------------------------------------------------------------------
