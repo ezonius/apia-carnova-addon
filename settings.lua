@@ -43,4 +43,11 @@ data:extend({
 		default_value = false,
 		order = 'g',
 	},
+	{
+		type = 'bool-setting',
+		name = 'apia-carnova-addon-foundation-on-fat-jelly',
+		setting_type = 'startup',
+		default_value = false,
+		order = 'h',
+	},
 })

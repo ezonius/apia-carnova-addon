@@ -40,6 +40,23 @@ if settings.startup['apia-carnova-addon-biosynthesizer-tile-recipes'].value then
 	end
 end
 
+-- Allow the vanilla 'foundation' item to be placed on Fat Jelly ('carnova-biome1').
+-- Two separate mechanisms:
+-- 1. The foundation item hardcodes the list of tiles it can replace in
+--    place_as_tile.tile_condition (manual placement of the foundation item).
+-- 2. The engine's auto-fill on shift-place uses the source tile's
+--    TilePrototype::default_cover_tile (vanilla sets water -> landfill, lava/oil
+--    oceans -> foundation, ammoniacal ocean -> ice-platform).
+if settings.startup['apia-carnova-addon-foundation-on-fat-jelly'].value then
+	local tile = data.raw.tile['carnova-biome1']
+	local foundation = data.raw.item['foundation']
+	if tile and foundation and foundation.place_as_tile then
+		foundation.place_as_tile.tile_condition = foundation.place_as_tile.tile_condition or {}
+		table.insert(foundation.place_as_tile.tile_condition, 'carnova-biome1')
+		tile.default_cover_tile = 'foundation'
+	end
+end
+
 if settings.startup['apia-carnova-addon-hive-effect-productivity'].value then
 	for _, recipe in pairs(data.raw.recipe) do
 		local categories = recipe.categories or {}

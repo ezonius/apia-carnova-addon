@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: UNRELEASED
+  Features:
+    - New startup toggle: allows the vanilla foundation item to be placed on Fat Jelly
+      ('carnova-biome1') and makes shift-placed buildings auto-fill it with foundation
+      (like lava). Requires a restart.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 2026-10-10
   Features:
