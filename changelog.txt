@@ -1,8 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2026-10-10
+  Features:
+    - New startup toggle: adds Apia's tile recipes (wax platform, artificial honey/copper/iron
+      soil) to the Biosynthesizer. The artificial soil recipes keep their Apia surface
+      restriction. Requires a restart.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2026-10-10
   Features:
     - Adds configurable module slots to the Artificial Hive (startup setting, 0-8, default 6).
-    - Adds per-effect runtime toggles (speed, productivity, consumption, pollution, quality) for
-      the Artificial Hive. Disallowed modules are removed from placed hives when a toggle changes.
+    - Adds per-effect startup toggles (speed, productivity, consumption, pollution, quality) for
+      the Artificial Hive. These apply both to modules inserted in the hive and to effects
+      received from beacons. The productivity toggle also enables productivity on the hive's
+      honeycomb recipes (they don't allow it by default).
 ---------------------------------------------------------------------------------------------------

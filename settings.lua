@@ -11,9 +11,9 @@ data:extend({
 	},
 })
 
--- Per-effect toggles for the Artificial Hive (runtime, default off).
--- Enforcement happens in control.lua: disallowed modules are removed from
--- placed hives when the setting changes, when a hive is built, and periodically.
+-- Per-effect toggles for the Artificial Hive (startup: requires restart).
+-- allowed_effects governs both modules inserted in the machine itself and
+-- effects received from beacons, so these toggles enable both at once.
 local effects = {
 	{ 'speed', 'b' },
 	{ 'productivity', 'c' },
@@ -21,14 +21,26 @@ local effects = {
 	{ 'pollution', 'e' },
 	{ 'quality', 'f' },
 }
-local runtime_settings = {}
+local effect_settings = {}
 for _, effect in ipairs(effects) do
-	table.insert(runtime_settings, {
+	table.insert(effect_settings, {
 		type = 'bool-setting',
 		name = 'apia-carnova-addon-hive-effect-' .. effect[1],
-		setting_type = 'runtime-global',
+		setting_type = 'startup',
 		default_value = false,
 		order = effect[2],
 	})
 end
-data:extend(runtime_settings)
+data:extend(effect_settings)
+
+-- Add the Apia tile recipes (wax platform + artificial soils) to the Biosynthesizer
+-- (startup: requires restart).
+data:extend({
+	{
+		type = 'bool-setting',
+		name = 'apia-carnova-addon-biosynthesizer-tile-recipes',
+		setting_type = 'startup',
+		default_value = false,
+		order = 'g',
+	},
+})
